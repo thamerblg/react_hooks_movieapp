@@ -1,0 +1,16 @@
+.navigation {
+  background-color: #373b69;
+}
+.navbar-brand {
+  color: #fff !important;
+}
+.form-control {
+  width: auto !important;
+}
+.search {
+  display: flex;
+  width: 50%;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
