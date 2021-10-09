@@ -9,24 +9,28 @@ function App() {
   const [titleSearch, setTitleSearch] = useState("");
   const [ratingSearche, setRatingSearche] = useState("");
 
-  const filterMovie = () => {
+  const filterMovieByTitle = () => {
     setMoviesList(
-      movies.filter(
-        (movie) =>
-          movie.title
-            .toLowerCase()
-            .startsWith(titleSearch.toLowerCase().trim()) &&
-          movie.rating > ratingSearche
+      movies.filter((movie) =>
+        movie.title.toLowerCase().startsWith(titleSearch.toLowerCase().trim())
       )
     );
+  };
+  const filterMovieByRating = () => {
+    setMoviesList(movies.filter((movie) => movie.rating > ratingSearche));
   };
   const AddNewMovie = (newMovie) => {
     movies.push(newMovie);
     setMoviesList([...moviesList, newMovie]);
   };
   useEffect(() => {
-    filterMovie();
-  }, [titleSearch, ratingSearche]);
+    filterMovieByTitle();
+    // eslint-disable-next-line
+  }, [titleSearch]);
+  useEffect(() => {
+    filterMovieByRating();
+    // eslint-disable-next-line
+  }, [ratingSearche]);
 
   return (
     <div className="container my-3">
